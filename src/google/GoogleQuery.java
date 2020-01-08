@@ -38,7 +38,7 @@ public class GoogleQuery
 	public GoogleQuery(String searchKeyword)
 	{
 		this.searchKeyword = searchKeyword;
-		this.url = "http://www.google.com.tw/search?q="+searchKeyword+"&oe=utf8&num=20";
+		this.url = "http://www.google.com.tw/search?q="+searchKeyword+"&oe=utf8&num=3";
 	}
 
 	
@@ -47,7 +47,42 @@ public class GoogleQuery
 
 	{
 		String retVal = "";
-
+		if(url.contains(" "))
+		{
+			url=url.replaceAll(" ", "%20");
+			System.out.println(url);
+		}
+		if(url.contains("+"))
+		{
+			url=url.replaceAll("+", "%2B");
+			System.out.println(url);
+		}
+//		if(url.contains("?"))
+//		{
+//			url=url.replaceAll("?", "%3F");
+//			System.out.println(url);
+//		}
+//		if(url.contains("="))
+//		{
+//			url=url.replaceAll("=", "%3D");
+//			System.out.println(url);
+//		}
+//		if(url.contains("%"))
+//		{
+//			url=url.replaceAll("%", "%25");
+//			System.out.println(url);
+//		}
+//		if(url.contains("#"))
+//		{
+//			url=url.replaceAll("#", "%23");
+//			System.out.println(url);
+//		}
+//		if(url.contains("&"))
+//		{
+//			url=url.replaceAll("&", "%26");
+//			System.out.println(url);
+//		}
+		
 		URL u = new URL(url);
 
 		URLConnection conn = u.openConnection();
@@ -71,7 +106,7 @@ public class GoogleQuery
 	public MyHashMap<String, String> query() throws IOException
 
 	{
-
+		
 		if(content==null)
 		{
 

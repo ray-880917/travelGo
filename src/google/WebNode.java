@@ -58,7 +58,7 @@ public class WebNode
 	
 	public void findChildren() throws Exception
 	{		
-		if(getDepth()>1)
+		if(getDepth()>2)
 		{
 			return;
 		}

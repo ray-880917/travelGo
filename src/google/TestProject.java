@@ -45,6 +45,8 @@ public class TestProject extends HttpServlet
 			return;
 			
 		}
+		
+//		System.out.println(request.getParameter("keyword"));
 		GoogleQuery google = new GoogleQuery(request.getParameter("keyword"));
 		MyHashMap<String, String> query = google.query();
 		String[][] s = new String[query.size()][2];
@@ -69,6 +71,8 @@ public class TestProject extends HttpServlet
 		    if(value.contains("javascript"))
 				continue;
 		    if(value.contains("wikipedia"))
+				continue;
+		    if(!value.contains("http"))
 				continue;
 			if(value.contains("&sa=U")&&!value.startsWith("/search?"))
 				value=value.substring(0,value.lastIndexOf("&sa=U"));
